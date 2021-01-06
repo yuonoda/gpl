@@ -2,7 +2,6 @@ package main
 
 import (
 	"bufio"
-	"fmt"
 )
 
 type LineCounter int
@@ -25,10 +24,4 @@ func (c *LineCounter) Write(p []byte) (int, error) {
 		}
 
 	}
-}
-
-func main() {
-	var c LineCounter
-	c.Write([]byte("Hello World"))
-	fmt.Println("c:", c)
 }

@@ -2,7 +2,6 @@ package main
 
 import (
 	"bufio"
-	"fmt"
 )
 
 type WordCounter int
@@ -25,11 +24,4 @@ func (c *WordCounter) Write(p []byte) (int, error) {
 		}
 
 	}
-}
-
-func main() {
-	var c WordCounter
-	fmt.Fprintf(&c, "Hello World")
-	fmt.Println("c:", c)
-
 }

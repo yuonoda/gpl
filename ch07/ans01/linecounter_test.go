@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"testing"
 )
 
@@ -11,16 +10,16 @@ func TestLineCounter(t *testing.T) {
 		expected int
 	}{
 		{"Hello World", 1},
-		{"Hello \nMy World", 2},
-		{"Hello \nMy World \n", 3},
-		{"Hello World\nこんにちは　世界", 2},
-		{"\nHello World\nこんにちは　世界", 3},
+		{"Hello World\nHello World", 2},
+		{"Hello World\nHello World\n", 2},
+		{"Hello World\nHello World\n\n", 3},
+		{"Hello World! こんにちは　世界", 1},
+		{"Hello World!\nこんにちは　世界", 2},
 	}
 
 	var c LineCounter
 	for _, d := range data {
 		c = 0
-		fmt.Println("d.s:", d.s)
 		bytes := []byte(d.s)
 		n, err := c.Write(bytes)
 
