@@ -1,8 +1,22 @@
 package main
 
 import (
+	"fmt"
 	"testing"
 )
+
+func TestWordCounter2_Write(t *testing.T) {
+	bytes := []byte("Hello\n World")
+	var c LineCounter2
+	c.Write(bytes)
+	fmt.Printf("c:%v", c)
+
+	e := 2
+	if c != LineCounter2(e) {
+		t.Errorf("not match")
+
+	}
+}
 
 func TestLineCounter(t *testing.T) {
 	data := []struct {
@@ -17,7 +31,7 @@ func TestLineCounter(t *testing.T) {
 		{"Hello World!\nこんにちは　世界", 2},
 	}
 
-	var c LineCounter
+	var c LineCounter2
 	for _, d := range data {
 		c = 0
 		bytes := []byte(d.s)
@@ -33,7 +47,7 @@ func TestLineCounter(t *testing.T) {
 			continue
 		}
 
-		if c != LineCounter(d.expected) {
+		if c != LineCounter2(d.expected) {
 			t.Errorf("Result is %d, want %d", c, d.expected)
 		}
 
