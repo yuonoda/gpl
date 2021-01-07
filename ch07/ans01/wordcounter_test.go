@@ -1,6 +1,19 @@
 package main
 
-import "testing"
+import (
+	"fmt"
+	"testing"
+)
+
+func TestWrite2(t *testing.T) {
+	var c WordCounter2
+	c.Write([]byte("Hello world"))
+	fmt.Println("c:", c)
+	e := 2
+	if c != WordCounter2(e) {
+		t.Errorf("Expected %d, got %d", e, c)
+	}
+}
 
 func TestWordCounter(t *testing.T) {
 	data := []struct {
