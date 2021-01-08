@@ -5,17 +5,17 @@ import (
 	"testing"
 )
 
-func TestWrite2(t *testing.T) {
-	var c WordCounter2
+func TestWrite3(t *testing.T) {
+	var c WordCounter3
 	c.Write([]byte("Hello world"))
 	fmt.Println("c:", c)
 	e := 2
-	if c != WordCounter2(e) {
+	if c != WordCounter3(e) {
 		t.Errorf("Expected %d, got %d", e, c)
 	}
 }
 
-func TestWordCounter(t *testing.T) {
+func TestWordCounter3(t *testing.T) {
 	data := []struct {
 		s        string
 		expected int
@@ -27,7 +27,7 @@ func TestWordCounter(t *testing.T) {
 		{"Hello World\nこんにちは　世界", 4},
 	}
 
-	var c WordCounter
+	var c WordCounter3
 	for _, d := range data {
 		c = 0
 
@@ -44,7 +44,7 @@ func TestWordCounter(t *testing.T) {
 			continue
 		}
 
-		if c != WordCounter(d.expected) {
+		if c != WordCounter3(d.expected) {
 			t.Errorf("Result is %d, want %d", c, d.expected)
 		}
 
