@@ -6,10 +6,11 @@ import (
 	"testing"
 )
 
-func TestCountingWriter2(t *testing.T) {
+func TestCountingWriter3(t *testing.T) {
 	str := "Hello World"
-	w, c := CountingWriter2(os.Stdout)
+	w, c := CountingWriter3(os.Stdout)
 	w.Write([]byte(str))
+	fmt.Printf("w:%d\n", w)
 	fmt.Printf("c:%d\n", c)
 	return
 }
@@ -22,7 +23,7 @@ func TestCountingWriter(t *testing.T) {
 		"プログラミング言語Go\n",
 	}
 
-	w, c := CountingWriter2(os.Stdout)
+	w, c := CountingWriter3(os.Stdout)
 
 	var total int64 = 0
 
