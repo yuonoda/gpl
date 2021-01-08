@@ -31,7 +31,7 @@ func TestLineCounter(t *testing.T) {
 		{"Hello World!\nこんにちは　世界", 2},
 	}
 
-	var c LineCounter2
+	var c LineCounter3
 	for _, d := range data {
 		c = 0
 		bytes := []byte(d.s)
@@ -47,7 +47,7 @@ func TestLineCounter(t *testing.T) {
 			continue
 		}
 
-		if c != LineCounter2(d.expected) {
+		if c != LineCounter3(d.expected) {
 			t.Errorf("Result is %d, want %d", c, d.expected)
 		}
 
