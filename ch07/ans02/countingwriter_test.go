@@ -23,13 +23,14 @@ func TestCountingWriter(t *testing.T) {
 		"プログラミング言語Go\n",
 	}
 
-	w, c := CountingWriter3(os.Stdout)
+	w, c := CountingWriter4(os.Stdout)
 
 	var total int64 = 0
 
 	for _, d := range data {
 		bytes := []byte(d)
 		w.Write(bytes)
+		fmt.Println("*c:", *c)
 		total += int64(len(bytes))
 
 		if *c != total {
